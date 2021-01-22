@@ -10,5 +10,4 @@ def extract_now_temper():
     soup = BeautifulSoup(result.text, "html.parser")
     weather = soup.find("dl", {"class" : "summary_list"}).get_text().strip().split("\n")
     
-
     return weather

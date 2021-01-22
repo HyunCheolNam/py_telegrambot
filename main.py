@@ -49,15 +49,11 @@ news_link = soup.find_all("div",{"class" : "txt_wrap"})
 link = []
 for href in news_link:
     link.append(href.find("a")["href"])
-
-
-news_info = {}
-for i in range(0,20):
-    news_info[i] = {"제목" : title[i], "링크" : link[i], "작성날짜" : date[i]}
+print(len(link))
 
 
 for i in range(0,20):
-    bot.sendMessage(hc_bot,news_info[i])
+    bot.sendMessage(hc_bot,link[i] )
 bot.sendMessage(hc_bot, weather[0]+":"+weather[1]+"\n"+weather[2]+":"+weather[3]+"\n"+weather[4]+":"+weather[5])
 bot.sendMessage(hc_bot, "오전 : " + rain_fall[0] +"\n" + "오후 : " + rain_fall[1])
 
